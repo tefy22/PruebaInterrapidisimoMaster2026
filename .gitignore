@@ -1,0 +1,84 @@
+# Visual Studio workspace / caches
+__ .vs__/
+__ .vs__/**/CopilotIndices/
+__ .vs__/**/FileContentIndex/
+__ .vs__/**/ProjectEvaluation/
+__ .vs__/**/v17/
+*.vsidx
+*.db
+*.db-shm
+*.db-wal
+*.futdcache.v2
+
+# Build outputs
+**/bin/
+**/obj/
+# Archivos generados de AssemblyInfo en obj
+**/obj/**/Domain.AssemblyInfo.cs
+**/obj/**/Domain.AssemblyInfoInputs.cache
+
+# User-specific / IDE
+*.suo
+*.user
+*.userprefs
+*.userosscache
+.vscode/
+.idea/
+
+# Config local / secrets
+appsettings.Development.json
+secrets.json
+
+# Paquetes / test / logs
+packages/
+*.nupkg
+TestResults/
+*.log
+*.pdb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# db and index files produced by VS / Copilot
+*.vsidx
+*.db-shm
+*.db-wal
+
+# Visual Studio workspace / caches
+.vs/
+.vs/**/CopilotIndices/
+.vs/**/FileContentIndex/
+*.vsidx
+*.db
+*.db-shm
+*.db-wal
+
+# Build outputs
+**/bin/
+**/obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.userprefs
+
+# NuGet / packages
+packages/
+*.nupkg
+
+# Test / logs
+TestResults/
+*.log
+*.pdb
+
+# Local config / secrets
+appsettings.Development.json
+secrets.json
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
