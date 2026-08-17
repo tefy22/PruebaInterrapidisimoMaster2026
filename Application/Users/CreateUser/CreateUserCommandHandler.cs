@@ -60,6 +60,10 @@ namespace Application.Users.CreateUser
                 if (existEmail)
                     return Result.Failure<Guid>(UserErrors.ExistsEmail);
 
+                var existDni = await _userRepository.GetUserByDNIAsync(dniResult.Value.Value, cancellationToken);
+                if (existDni is not null)
+                    return Result.Failure<Guid>(UserErrors.ExistsDNI);
+
                 var passHash = BCrypt.Net.BCrypt.HashPassword(passwordResult.Value.Value);
                 var passHashed = Password.CreateFromHash(passHash);                               
 

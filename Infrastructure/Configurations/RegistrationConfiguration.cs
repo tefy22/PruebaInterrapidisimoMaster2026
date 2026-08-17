@@ -25,8 +25,7 @@ namespace Infrastructure.Configurations
             builder.Metadata.FindNavigation(nameof(Registration.Details))?
                 .SetPropertyAccessMode(PropertyAccessMode.Field);
 
-
-        // Reemplazar la conversión de lectura de Rating para extraer el valor del Result
+                    
             builder.OwnsMany<RegistrationDetail>(r => r.Details, navigationBuilder =>
             {
                 navigationBuilder.ToTable("RegistrationDetails");
@@ -34,8 +33,8 @@ namespace Infrastructure.Configurations
                 navigationBuilder.Property<Guid>(r => r.SubjectId).IsRequired();
                 navigationBuilder.Property(d => d.Rating)
                     .HasConversion(
-                        rating => rating.Value,              // Cómo se guarda en la BD
-                        value => Rating.Create(value).Value  // Cómo se reconstruye al leer de la BD
+                        rating => rating.Value,              
+                        value => Rating.Create(value).Value  
                     )
                     .HasColumnName("Rating");
             });

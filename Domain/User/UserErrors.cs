@@ -14,7 +14,7 @@ namespace Domain.User
         public static Error ExistsEmail = new Error("User.ExistsEmail", "El email ya existe");
         public static Error StudentNotFound = new Error("User.StudentNotFound", "El estudiante con el id mencionado no existe");
         public static Error CannotDeleteTeacherWithSubjects = new Error("User.CannotDeleteTeacherWithSubjects", "El profesor tiene materias asignadas o matriculas asociadas; no se puede eliminar");
-
+        public static Error ExistsDNI = new Error("User.ExistsDNI", "Ya hay un usuario registrado con el DNI digitado");
 
         public static Error SearchError = new Error("User.SearchError", "Error al buscar el usuario");
         public static Error CreateError = new Error("User.CreateError", "Error al crear el usuario");

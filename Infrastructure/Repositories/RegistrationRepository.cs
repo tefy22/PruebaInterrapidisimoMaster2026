@@ -38,7 +38,7 @@ namespace Infrastructure.Repositories
             }
         }
 
-        public async Task<Registration?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public new async Task<Registration?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await _dbContext.Set<Registration>()
                                    .Include(r => r.Details)
@@ -69,15 +69,12 @@ namespace Infrastructure.Repositories
             if (studentId == Guid.Empty)
                 return Array.Empty<SharedSubjectDto>();
 
-            // Ajusta el nombre del procedimiento si es distinto en la BD
             const string storedProcName = "GetAvailableSubjectsForStudent";
 
             var param = new SqlParameter("@idStudent", SqlDbType.UniqueIdentifier) { Value = studentId };
 
-            // Reemplaza la línea problemática por la siguiente, usando ExecuteSqlQuery en lugar de SqlQuery
             var query = _dbContext.Set<SharedSubjectDto>().FromSqlRaw($"EXEC {storedProcName} @idStudent", param);
 
-            // ToListAsync acepta CancellationToken
             var list = await query.ToListAsync(cancellationToken);
 
             return list;

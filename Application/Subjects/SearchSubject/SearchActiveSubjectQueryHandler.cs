@@ -24,13 +24,6 @@ namespace Application.Subjects.SearchSubject
             try
             {
                 var subjects = await _subjectRepository.GetOnlyActive(cancellationToken);
-                //var dtos = subjects.Select(s => new SubjectDto(
-                //        id: s.Id,
-                //        name: s.Name.Value,
-                //        credits: s.Credits.Value,
-                //        idTeacher: s.TeacherId,
-                //        estado: (int)s.Status
-                //    )).ToList();
                 var dtos = subjects.Select(s => new SubjectDto(
                     id: s.Id,
                     name: s.Name.Value,

@@ -32,7 +32,6 @@ namespace Application.Subjects.DeleteSubject
                 if (subject is null)
                     return Result.Failure(SubjectErrors.NotFound);
 
-                // Validar que no haya registros en RegistrationDetails
                 var hasRegistrations = await _registrationRepository.HasRegistrationDetailsForSubjectAsync(request.id, cancellationToken);
                 if (hasRegistrations)
                     return Result.Failure(SubjectErrors.CannotDeleteSubjectWithRegistrations);

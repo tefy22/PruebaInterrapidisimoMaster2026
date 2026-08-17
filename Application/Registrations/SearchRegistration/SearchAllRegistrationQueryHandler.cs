@@ -57,7 +57,6 @@ namespace Application.Registrations.SearchRegistration
 
                 foreach (var reg in registrations)
                 {
-                    // Student name
                     var studentName = students.TryGetValue(reg.StudentId, out var st)
                         ? $"{st.Name.Value} {st.LastName.Value}"
                         : string.Empty;

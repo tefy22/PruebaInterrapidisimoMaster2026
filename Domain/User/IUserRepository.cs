@@ -13,6 +13,7 @@ namespace Domain.User
         Task<bool> IsUserExists(Email email, CancellationToken cancellationToken = default);
         Task<User?> GetByEmailAsync(Email email, CancellationToken cancellationToken = default);
         Task<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<User?> GetUserByDNIAsync(int dni, CancellationToken cancellationToken = default);
         Task<User?> GetStudentsByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<IReadOnlyList<User>> GetStudentsAsync(CancellationToken cancellationToken = default);
         Task<IReadOnlyList<User>> GetTeachersAsync(CancellationToken cancellationToken = default);

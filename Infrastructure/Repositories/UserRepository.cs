@@ -54,6 +54,12 @@ namespace Infrastructure.Repositories
                 .ToListAsync(cancellationToken);
         }
 
+        public async Task<User?> GetUserByDNIAsync(int dni, CancellationToken cancellationToken = default)
+        {
+            var users = await _dbContext.Set<User>().ToListAsync(cancellationToken);
+            return users.FirstOrDefault(u => u.DNId.Value == dni);
+        }
+
         public async Task<User?> GetStudentsByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await _dbContext.Set<User>()

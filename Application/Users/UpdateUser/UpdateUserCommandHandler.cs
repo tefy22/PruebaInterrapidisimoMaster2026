@@ -28,7 +28,6 @@ namespace Application.Users.UpdateUser
                 if (request is null)
                     return Result.Failure<Guid>(Error.NullValue);
 
-                // Validar ValueObjects
                 var dniResult = DNI.Create(request.dni);
                 var nameResult = Name.Create(request.name);
                 var lastNameResult = LastName.Create(request.lastName);
@@ -47,7 +46,7 @@ namespace Application.Users.UpdateUser
                 var existing = await _userRepository.GetByIdAsync(request.id, cancellationToken);
                 if (existing is null)
                     return Result.Failure<Guid>(UserErrors.UserNotFound);
-
+                            
                 // Si cambia el email, comprobar unicidad
                 if (!string.Equals(existing.Email.Value, emailResult.Value.Value, StringComparison.OrdinalIgnoreCase))
                 {
